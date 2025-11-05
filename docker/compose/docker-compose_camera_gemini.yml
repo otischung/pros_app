@@ -11,23 +11,19 @@ services:
     - ros2
     - launch
     - orbbec_camera
-    - dabai_dcw.launch.py
-    - color_width:=640
-    - color_height:=480
+    - gemini_ew.launch.py
     - color_fps:=30
-    - depth_width:=640
-    - depth_height:=480
     - depth_fps:=30
 
-  # rosbridge:
-  #   image: ghcr.io/screamlab/pros_base_image:0.0.2
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - my_bridge_network
-  #   ports:
-  #     - 9090:9090
-  #   command: "ros2 launch rosbridge_server rosbridge_websocket_launch.xml"
+  rosbridge:
+    image: ghcr.io/screamlab/pros_base_image:0.0.2
+    env_file:
+      - .env
+    networks:
+      - my_bridge_network
+    ports:
+      - 9090:9090
+    command: "ros2 launch rosbridge_server rosbridge_websocket_launch.xml"
 
   compress:
     image: ghcr.io/screamlab/pros_jetson_driver_image:0.1.0

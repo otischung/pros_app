@@ -10,6 +10,7 @@
         <param name="serial_baudrate" value="256000"/>
         <param name="frame_id" value="laser"/>
         <param name="inverted" value="false"/>
+         <param name="topic_name" value="scan_tmp"/>
         <param name="angle_compensate" value="true"/>
     </node>
     <node pkg="tf2_ros" exec="static_transform_publisher" name="base_to_laser_tf"
